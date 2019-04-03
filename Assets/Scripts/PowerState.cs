@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PowerState : MonoBehaviour
 {
-
     public enum Powers
     {
         Blink,
@@ -13,7 +12,7 @@ public class PowerState : MonoBehaviour
         SlowTime
     }
 
-    Powers currentPower;
+    public Powers currentPower;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +23,8 @@ public class PowerState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Current power" + currentPower);
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             currentPower = Powers.Blink;
