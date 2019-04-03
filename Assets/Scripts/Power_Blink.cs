@@ -38,6 +38,7 @@ public class Power_Blink : MonoBehaviour {
     Vector3 posPlayerClimb;
     float distFromGround;
 
+    PowerState powerState;
 
     // Use this for initialization
     void Start ()
@@ -51,11 +52,19 @@ public class Power_Blink : MonoBehaviour {
         air_Assassination = transform.root.GetComponent<Air_Assassination>();
         playerCollider = GameObject.Find("RigidBodyFPSController").GetComponent<CapsuleCollider>();
         camCollider = GameObject.Find("MainCamera").GetComponent<Collider>();
+
+
+        powerState = GetComponent<PowerState>();
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
+        if (powerState.currentPower != PowerState.Powers.Blink)
+        {
+            return;
+        }
+
         if (Input.GetAxis("UseLeft") > 0.2f) buttonAxis_UseLeft = false;
 
         if (!globalState.playerKeyholePeek && (Input.GetButton("UseLeft") || Input.GetAxis("UseLeft") > 0.2f) && !isBlinking)

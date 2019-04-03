@@ -7,7 +7,6 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class AI_Behaviour : MonoBehaviour
 {
-
     public bool isAvailableForScripting = true;
     public bool isDead;
     public bool isUnconscious;
@@ -46,7 +45,6 @@ public class AI_Behaviour : MonoBehaviour
     Transform playerPos;
     Transform myBlade;
 
-
     // Use this for initialization
     void Start()
     {
@@ -66,11 +64,10 @@ public class AI_Behaviour : MonoBehaviour
         myBlade = transform.Find("mixamorig:Hips/mixamorig:LeftUpLeg/MyBlade").GetComponent<Transform>();
     }
 
-
-
     // Update is called once per frame
     void Update()
     {
+
         CheckState();
         if (isDead || isUnconscious)
         {

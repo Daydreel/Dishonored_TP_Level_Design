@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PowerState : MonoBehaviour
 {
+
+    public Image powerImage;
+
+    public Sprite spriteBlink;
+    public Sprite spritePossession;
+
     public enum Powers
     {
         Blink,
-        DarkVision,
         Possession,
-        SlowTime
     }
 
     public Powers currentPower;
@@ -18,6 +23,7 @@ public class PowerState : MonoBehaviour
     void Start()
     {
         currentPower = Powers.Blink;
+        powerImage.sprite = spriteBlink;
     }
 
     // Update is called once per frame
@@ -28,21 +34,13 @@ public class PowerState : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             currentPower = Powers.Blink;
+            powerImage.sprite = spriteBlink;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            currentPower = Powers.DarkVision;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
             currentPower = Powers.Possession;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            currentPower = Powers.SlowTime;
+            powerImage.sprite = spritePossession;
         }
     }
 }
